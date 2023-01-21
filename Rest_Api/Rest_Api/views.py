@@ -11,4 +11,4 @@ def drink_list(request):
     """
     drinks = Drink.objects.all()
     serializer = DrinkSerializer(drinks, many = True)   # all fields
-    return JsonResponse(serializer.data)
+    return JsonResponse({'drinks': serializer.data}, safe = False)
